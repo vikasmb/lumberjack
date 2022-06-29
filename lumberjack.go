@@ -29,6 +29,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strings"
 	"sync"
@@ -378,6 +379,7 @@ func (l *Logger) millRunOnce() error {
 			err = errCompress
 		}
 	}
+	runtime.GC()
 
 	return err
 }
